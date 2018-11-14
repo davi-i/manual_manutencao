@@ -15,19 +15,19 @@
     }
 }
 
-@media (min-width: 576px) {
+@media (min-width: 992px) {
     html {
         font-size: 14px;
     }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1140px) {
     html {
-        font-size: 16px;
+        font-size: 15px;
     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1250px) {
     html {
         font-size: 16px;
     }
@@ -55,7 +55,7 @@ body {
 }
 
 article {
-  margin: 0 15rem;
+  margin: 0 2rem;
   font-size: 1.5rem;
 }
 
@@ -68,9 +68,9 @@ article > ol > li {
 }
 
 
-@media (max-width: 992px) {
+@media (min-width: 1500px) {
     article {
-      margin: 0 2rem;
+      margin: 0 10rem;
     }
 }
 
@@ -179,14 +179,21 @@ section h2 {
 }
 
 #mainNav {
+  background-color: transparent;
+  align-items: flex-start;
   padding-top: 1rem;
   padding-bottom: 1rem;
   font-weight: 700;
   font-family: 'Montserrat';
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
 }
 
 #mainNav .navbar-brand {
   color: #fff;
+  white-space: normal;
 }
 
 #mainNav .navbar-nav {
@@ -219,6 +226,7 @@ section h2 {
   #mainNav {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
+    background-color: #2C3E50;
     -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
     transition: padding-top 0.3s, padding-bottom 0.3s;
   }
@@ -238,18 +246,20 @@ section h2 {
     color: #fff;
     background: #18BC9C;
   }
-  #mainNav.navbar-shrink {
+  #mainNav.navbar {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
   }
-  #mainNav.navbar-shrink .navbar-brand {
+  #mainNav.navbar .navbar-brand {
     font-size: 1.5em;
   }
 }
 
+
+
 header.masthead {
-  padding-top: calc(6rem + 72px);
-  padding-bottom: 6rem;
+  padding-top: 6rem;
+  /*padding-bottom: 6rem;*/
 }
 
 header.masthead h1 {
@@ -263,9 +273,8 @@ header.masthead h2 {
 }
 
 @media (min-width: 992px) {
-  header.masthead {
-    padding-top: calc(6rem + 106px);
-    padding-bottom: 6rem;
+  body > header, section {
+    margin-left: 24.6845625rem;
   }
   header.masthead h1 {
     font-size: 4.75em;
