@@ -27,7 +27,7 @@
     }
     if (target && target.length){
       $('html, body').animate({
-        scrollTop: (target.offset().top - 70)
+        scrollTop: (target.offset().top)
       }, 1000, "easeInOutExpo");
       return false;
     }
@@ -38,10 +38,10 @@
         $next_button = $("a.js-scroll-trigger[direction=next]"),
         $prev_button = $("a.js-scroll-trigger[direction=prev]"),
         scrollDistance = $(document).scrollTop();
-    if (scrollDistance < $sections.eq(1).offset().top - 70) {
+    if (scrollDistance < $sections.eq(1).offset().top) {
       $next_button.show();
       $prev_button.hide();
-    } else if (scrollDistance >= $sections.eq(-1).offset().top - 70){
+    } else if (scrollDistance >= $sections.eq(-1).offset().top){
       $next_button.hide();
       $prev_button.show();
     } else {
@@ -67,6 +67,11 @@
   $('.js-scroll-trigger').click(function() {
     $('.navbar-collapse').collapse('hide');
   })
+
+  $('#mainNav').click(function(){
+    $('#navbarResponsive').toggleClass('collapse');
+    console.log('uhuu');
+  });
 
   // Activate scrollspy to add active class to navbar items on scroll
   $('body').scrollspy({
