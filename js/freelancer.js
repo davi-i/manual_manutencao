@@ -1,4 +1,4 @@
-(function($) {
+$(function() {
   "use strict"; // Start of use strict
 
   $('.popup-youtube').magnificPopup({
@@ -67,10 +67,29 @@
   $('.js-scroll-trigger').click(function() {
     $('.navbar-collapse').collapse('hide');
   })
+  var $navbar = $('#navbarResponsive');
+  var $collapserIcon = $('#mainNav .collapser > i');
+  var toggleNavbar = function(state){
+    console.log('1. ' + state);
+    if (state === undefined)
+      state = $navbar.css('display') == 'none';
+    $navbar.toggle(state);
+    $('body').toggleClass('shrink', state);
+    if (state)
+      $collapserIcon.removeClass('fa-angle-right').addClass('fa-angle-left');
+    else
+      $collapserIcon.removeClass('fa-angle-left').addClass('fa-angle-right');
+    
 
-  $('#mainNav').click(function(){
-    $('#navbarResponsive').toggleClass('collapse');
-    console.log('uhuu');
+  };
+  $(window).resize(function(){
+    toggleNavbar($(this).width()+17 >= 992);
+  });
+  toggleNavbar($(this).width()+17 >= 992);
+  console.log($(this).width+17);
+
+  $('#mainNav .collapser').click(function(){
+    toggleNavbar();
   });
 
   // Activate scrollspy to add active class to navbar items on scroll
@@ -114,4 +133,4 @@
     });
   });
 
-})(jQuery); // End of use strict
+}); // End of use strict
