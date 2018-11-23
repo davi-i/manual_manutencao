@@ -11,15 +11,15 @@ $(function() {
     fixedContentPos: false
   });
   // Smooth scrolling using jQuery easing
-  $('a.js-scroll-trigger[href*="#"]:not([href="#"]), a.js-scroll-trigger[direction]').click(function() {
+  $('a.js-scroll-trigger[href*="#"]:not([href="#"]), span.direction'/*a.js-scroll-trigger[direction]*/).click(function() {
     var $this = $(this), target;
-    if(this.hasAttribute('direction')){
+    if($this.hasClass('direction')){
       var $sections = $('section[id]'),
           active_section = $sections.filter(function(){ return $("a[href='#"+$(this).attr('id')+"']").hasClass('active')}),
           active_index = $sections.index(active_section);
-      if ($this.attr('direction') == "next")
+      if (this.id == "next")
         target = $sections.eq(active_index+1);
-      else if ($this.attr('direction') == "prev")
+      else if (this.id == "prev")
         target = $sections.eq(active_index-1);
     } else if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
       target = $(this.hash);
@@ -35,18 +35,20 @@ $(function() {
 
   var controlsDissapear = function() {
     var $sections = $('section[id]'),
-        $next_button = $("a.js-scroll-trigger[direction=next]"),
-        $prev_button = $("a.js-scroll-trigger[direction=prev]"),
+        //$next_button = $("a.js-scroll-trigger[direction=next]"),
+        //$prev_button = $("a.js-scroll-trigger[direction=prev]"),
+        $next_button = $("#next"),
+        $prev_button = $("#prev"),
         scrollDistance = $(document).scrollTop();
     if (scrollDistance < $sections.eq(1).offset().top) {
-      $next_button.show();
-      $prev_button.hide();
-    } else if (scrollDistance >= $sections.eq(-1).offset().top){
-      $next_button.hide();
-      $prev_button.show();
+      $next_button.fadeIn();
+      $prev_button.fadeOut();
+    } else if (scrollDistance > $sections.eq(-2).offset().top){
+      $next_button.fadeOut();
+      $prev_button.fadeIn();
     } else {
-      $next_button.show();
-      $prev_button.show();
+      $next_button.fadeIn();
+      $prev_button.fadeIn();
     }
   };
 
@@ -54,10 +56,10 @@ $(function() {
   $(document).scroll(function() {
     var scrollDistance = $(this).scrollTop();
 
-    if (scrollDistance > 100)
+    /*if (scrollDistance > 100)
       $('.scroll-to-top').fadeIn();
     else
-      $('.scroll-to-top').fadeOut();
+      $('.scroll-to-top').fadeOut();*/
 
     controlsDissapear();
   });
@@ -70,23 +72,24 @@ $(function() {
   var $navbar = $('#navbarResponsive');
   var $collapserIcon = $('#mainNav .collapser > i');
   var toggleNavbar = function(state){
-    console.log('1. ' + state);
     if (state === undefined)
       state = $navbar.css('display') == 'none';
-    $navbar.toggle(state);
-    $('body').toggleClass('shrink', state);
-    if (state)
+    //$navbar.slideToggle(state);
+    if (state) {
+      $navbar.animate({width:'show', padding:'show'}, 350);
+      $navbar.children().fadeIn(150);
       $collapserIcon.removeClass('fa-angle-right').addClass('fa-angle-left');
-    else
+    }
+    else {
+      $navbar.children().fadeOut(150);
+      $navbar.animate({width:'hide', padding:'hide'}, 350);
       $collapserIcon.removeClass('fa-angle-left').addClass('fa-angle-right');
-    
-
+    }
   };
   $(window).resize(function(){
     toggleNavbar($(this).width()+17 >= 992);
   });
   toggleNavbar($(this).width()+17 >= 992);
-  console.log($(this).width+17);
 
   $('#mainNav .collapser').click(function(){
     toggleNavbar();
