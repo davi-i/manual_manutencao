@@ -116,8 +116,8 @@ a.go-to-content:hover {
   background: rgba(255, 255, 255, 0.2);
 }
 
-hr.star-light,
-hr.star-dark {
+hr.cog-light,
+hr.cog-dark {
   max-width: 15rem;
   padding: 0;
   text-align: center;
@@ -129,32 +129,32 @@ hr.star-dark {
   margin-right: auto;
 }
 
-hr.star-light:after,
-hr.star-dark:after {
+hr.cog-light:after,
+hr.cog-dark:after {
   position: relative;
   top: -.8em;
   display: inline-block;
   padding: 0 0.25em;
-  content: '\f005';
+  content: '\f013';
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   font-size: 2em;
 }
 
-hr.star-light {
+hr.cog-light {
   border-color: #fff;
 }
 
-hr.star-light:after {
+hr.cog-light:after {
   color: #fff;
   background-color: #18BC9C;
 }
 
-hr.star-dark {
+hr.cog-dark {
   border-color: #2C3E50;
 }
 
-hr.star-dark:after {
+hr.cog-dark:after {
   color: #2C3E50;
   background-color: white;
 }
@@ -206,10 +206,7 @@ section h5 {
 }*/
 
 #mainNav {
-  /*background-color: transparent;*/
   align-items: flex-start;
-  /*padding-top: 1rem;
-  padding-bottom: 1rem;*/
   font-weight: 700;
   font-family: 'Montserrat';
   height: 100vh;
@@ -230,31 +227,29 @@ section h5 {
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
+  background: #f1f1f1; 
+  border-radius: 10px;
 }
 
 #mainNav::-webkit-scrollbar-track {
-    background: #2C3E50; 
+  background: #2C3E50;
+  border-radius: 0;
 }
 
-/* Track */
 ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
+  border-radius: 10px;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #888; 
+  background: #888; 
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
+  background: #555; 
 }
 
 #mainNav .navbar-brand {
@@ -269,10 +264,6 @@ section h5 {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-}
-
-#mainNav .collapser {
-  display: none;
 }
 
 span.direction {
@@ -303,12 +294,17 @@ span.direction {
   height: 100vh;
 }
 
+span.collapser {
+  display: none;
+  z-index: 50;
+}
+
 @media (max-width: 992px) {
-  #mainNav .collapser {
+  span.collapser {
     display: inline;
-    position: absolute;
+    position: fixed;
     top: 50%;
-    left: 100%;
+    left: 0;
     border-radius: 0 50% 50% 0;
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.5);

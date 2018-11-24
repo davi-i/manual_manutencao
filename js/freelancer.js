@@ -54,58 +54,82 @@ $(function() {
 
   // Scroll to top button appear
   $(document).scroll(function() {
-    var scrollDistance = $(this).scrollTop();
-
-    var pos = $('.nav-link.active');
-    var scrollTop = $('#mainNav').scrollTop();
-    console.log('scrollTop: '+scrollTop)
-    pos = pos.length ?
-        pos[0].offsetTop :
-        0;
-    console.log('posNoScroll: '+(pos-scrollTop))
-    console.log('pos: '+pos);
-    if (pos != scrollTop) {
-      console.log('enter');
-      $('#mainNav').stop().animate({
+    var $active = $('.nav-link.active'),
+        $mainNav = $('#mainNav'),
+        pos = $active.length ?
+            $active[0].offsetTop - $mainNav.height()/2 + $active.height()/2 :
+            0,
+        height = $mainNav[0].scrollHeight,
+        scrollTop = $mainNav.scrollTop();
+    pos = pos < 0 ?
+        0 :
+        pos > height-$(window).height() ?
+            height-$(window).height() :
+            pos;
+    if (parseInt(scrollTop) != parseInt(pos))
+      $mainNav.stop().animate({
         scrollTop: pos
-      }, 20, 'easeInOutExpo');
-    }
-    /*if (scrollDistance > 100)
-      $('.scroll-to-top').fadeIn();
-    else
-      $('.scroll-to-top').fadeOut();*/
+      }, 500, 'easeInOutExpo');
 
     controlsDissapear();
   });
 
   controlsDissapear();
+
+  var adjustMargin = function() {
+    var $mainNav = $('#mainNav');
+    var scrollBar = $(window).width() >= 992 && $mainNav.height() != $mainNav[0].scrollHeight;
+    if (scrollBar){
+      $('body > header, section').each(function(){
+        var $this = $(this);
+        $this.css('margin-left', (parseFloat($this.css('margin-left'))+10)+'px');
+      });
+      $('.direction').each(function(){
+        var $this = $(this);
+        $this.css('margin-left', (parseFloat($this.css('margin-left'))+5)+'px');
+      });
+    }
+  }
   // Closes responsive menu when a scroll trigger link is clicked
   $('.js-scroll-trigger').click(function() {
     $('.navbar-collapse').collapse('hide');
   })
   var $navbar = $('#navbarResponsive');
-  var $collapserIcon = $('#mainNav .collapser > i');
+  var $collapser = $('span.collapser');
   var toggleNavbar = function(state){
     if (state === undefined)
       state = $navbar.css('display') == 'none';
     //$navbar.slideToggle(state);
     if (state) {
+      var $mainNav = $('#mainNav');
+      var scrollBar = $mainNav.height() < $mainNav[0].scrollHeight;
+      console.log($mainNav.height());
+      console.log($mainNav[0].scrollHeight);
+      console.log(scrollBar);
       $navbar.children().fadeIn(150);
       $navbar.animate({width:'show', padding:'show'}, 350);
-      $collapserIcon.removeClass('fa-angle-right').addClass('fa-angle-left');
+      $collapser.animate({marginLeft:'19rem'}, 350, function(){
+        if (scrollBar)
+          $collapser.animate({marginLeft: (parseFloat($collapser.css('margin-left'))+10)+'px'}, 'fast');
+      })
+          .children('i')
+              .removeClass('fa-angle-right').addClass('fa-angle-left');
     }
     else {
       $navbar.children().fadeOut(150);
       $navbar.animate({width:'hide', padding:'hide'}, 350);
-      $collapserIcon.removeClass('fa-angle-left').addClass('fa-angle-right');
+      $collapser.animate({marginLeft: '0'}, 350)
+          .children('i')
+              .removeClass('fa-angle-left').addClass('fa-angle-right');
     }
   };
   $(window).resize(function(){
     toggleNavbar($(this).width()+17 >= 992);
+    adjustMargin();
   });
   toggleNavbar($(this).width()+17 >= 992);
 
-  $('#mainNav .collapser').click(function(){
+  $('span.collapser').click(function(){
     toggleNavbar();
   });
 
