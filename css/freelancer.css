@@ -77,6 +77,10 @@ article p, article h4 {
   text-indent: 1.5rem;
 }
 
+article h4 {
+  margin-top: 2rem; 
+}
+
 /*article > ol > li {
   margin-bottom: 2rem;
 }*/
@@ -217,10 +221,40 @@ section h5 {
   -webkit-transition: padding 0.3s;
   transition: padding 0.3s;
   z-index: 50;
+  overflow-y: auto;
 }
 
 #navbarResponsive {
   padding: 1.5rem 1rem;
+  width: 19rem;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+#mainNav::-webkit-scrollbar-track {
+    background: #2C3E50; 
+}
+
+/* Track */
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
 }
 
 #mainNav .navbar-brand {
@@ -245,7 +279,7 @@ span.direction {
   display: inline;
   position: fixed;
   left: 50%;
-  padding: 0 10px;
+  padding: 0 .65625rem;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   cursor: pointer;
@@ -298,6 +332,7 @@ body > header > div {
 
 #mainNav .navbar-nav li.nav-item a.nav-link {
   color: #fff;
+  border-radius: .25rem 0 0 .25rem 
 }
 
 #mainNav .navbar-nav li.nav-item a.nav-link:hover {
@@ -371,10 +406,10 @@ header.masthead h2 {
 
 @media (min-width: 992px) {
   body > header, section {
-    margin-left: 16.4755625rem;
+    margin-left: 19rem;
   }
   span.direction {
-    margin-left: 8.23778125rem;
+    margin-left: 9.5rem;
   }
   header.masthead h1 {
     font-size: 4.75em;

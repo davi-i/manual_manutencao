@@ -4,7 +4,7 @@ $(function() {
   $('.popup-youtube').magnificPopup({
     disableOn: 700,
     type: 'iframe',
-    mainClass: 'mfp-fade',
+    mainClass: 'mfp-wfade',
     removalDelay: 160,
     preloader: false,
 
@@ -56,6 +56,20 @@ $(function() {
   $(document).scroll(function() {
     var scrollDistance = $(this).scrollTop();
 
+    var pos = $('.nav-link.active');
+    var scrollTop = $('#mainNav').scrollTop();
+    console.log('scrollTop: '+scrollTop)
+    pos = pos.length ?
+        pos[0].offsetTop :
+        0;
+    console.log('posNoScroll: '+(pos-scrollTop))
+    console.log('pos: '+pos);
+    if (pos != scrollTop) {
+      console.log('enter');
+      $('#mainNav').stop().animate({
+        scrollTop: pos
+      }, 20, 'easeInOutExpo');
+    }
     /*if (scrollDistance > 100)
       $('.scroll-to-top').fadeIn();
     else
@@ -76,8 +90,8 @@ $(function() {
       state = $navbar.css('display') == 'none';
     //$navbar.slideToggle(state);
     if (state) {
-      $navbar.animate({width:'show', padding:'show'}, 350);
       $navbar.children().fadeIn(150);
+      $navbar.animate({width:'show', padding:'show'}, 350);
       $collapserIcon.removeClass('fa-angle-right').addClass('fa-angle-left');
     }
     else {
