@@ -11,7 +11,7 @@ $(function() {
     fixedContentPos: false
   });
   // Smooth scrolling using jQuery easing
-  $('a.js-scroll-trigger[href*="#"]:not([href="#"]), span.direction'/*a.js-scroll-trigger[direction]*/).click(function() {
+  $('a.js-scroll-trigger[href*="#"]:not([href="#"]), span.direction').click(function() {
     var $this = $(this), target;
     if($this.hasClass('direction')){
       var $sections = $('section[id]'),
@@ -35,8 +35,6 @@ $(function() {
 
   var controlsDissapear = function() {
     var $sections = $('section[id]'),
-        //$next_button = $("a.js-scroll-trigger[direction=next]"),
-        //$prev_button = $("a.js-scroll-trigger[direction=prev]"),
         $next_button = $("#next"),
         $prev_button = $("#prev"),
         scrollDistance = $(document).scrollTop();
@@ -78,42 +76,35 @@ $(function() {
 
   var adjustMargin = function() {
     var $mainNav = $('#mainNav');
-    var scrollBar = $(window).width() >= 992 && $mainNav.height() != $mainNav[0].scrollHeight;
+    var scrollBar = $(window).width() >= 992 && $mainNav.height() < $mainNav[0].scrollHeight;
     if (scrollBar){
       $('body > header, section').each(function(){
         var $this = $(this);
-        $this.css('margin-left', (parseFloat($this.css('margin-left'))+10)+'px');
+        $this.css('margin-left', (parseFloat($('html').css('font-size'))*19+10)+'px');
       });
       $('.direction').each(function(){
         var $this = $(this);
-        $this.css('margin-left', (parseFloat($this.css('margin-left'))+5)+'px');
+        $this.css('margin-left', (parseFloat($('html').css('font-size'))*9.5+5)+'px');
       });
+    } else {
+      $('body > header, section, .direction').css('margin-left', 0);
     }
   }
-  // Closes responsive menu when a scroll trigger link is clicked
-  $('.js-scroll-trigger').click(function() {
-    $('.navbar-collapse').collapse('hide');
-  })
   var $navbar = $('#navbarResponsive');
   var $collapser = $('span.collapser');
   var toggleNavbar = function(state){
     if (state === undefined)
       state = $navbar.css('display') == 'none';
-    //$navbar.slideToggle(state);
     if (state) {
       var $mainNav = $('#mainNav');
       var scrollBar = $mainNav.height() < $mainNav[0].scrollHeight;
-      console.log($mainNav.height());
-      console.log($mainNav[0].scrollHeight);
-      console.log(scrollBar);
       $navbar.children().fadeIn(150);
       $navbar.animate({width:'show', padding:'show'}, 350);
       $collapser.animate({marginLeft:'19rem'}, 350, function(){
         if (scrollBar)
-          $collapser.animate({marginLeft: (parseFloat($collapser.css('margin-left'))+10)+'px'}, 'fast');
-      })
-          .children('i')
-              .removeClass('fa-angle-right').addClass('fa-angle-left');
+          $collapser.animate({marginLeft: (parseFloat($('html').css('font-size'))*19+10)+'px'}, 'fast');
+      }).children('i')
+            .removeClass('fa-angle-right').addClass('fa-angle-left');
     }
     else {
       $navbar.children().fadeOut(150);
@@ -128,6 +119,11 @@ $(function() {
     adjustMargin();
   });
   toggleNavbar($(this).width()+17 >= 992);
+  adjustMargin();
+  // Closes responsive menu when a scroll trigger link is clicked
+  $('.js-scroll-trigger').click(function() {
+    toggleNavbar(false);
+  })
 
   $('span.collapser').click(function(){
     toggleNavbar();

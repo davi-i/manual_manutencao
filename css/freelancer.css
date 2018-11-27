@@ -43,10 +43,6 @@
   background-color: #c4302b;
 }
 
-.atencao {
-  
-}
-
 .popup-youtube {
   font-size: 1.5em;
   color: #e1e1e1;
@@ -179,6 +175,18 @@ section h5 {
   }
 }
 
+section ol {
+  position: relative;
+}
+
+section ol > img {
+  position: relative;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 10px;
+}
+
 .btn-xl {
   padding: 1rem 1.75rem;
   font-size: 1.25rem;
@@ -190,20 +198,6 @@ section h5 {
   font-size: 1.25rem;
   line-height: 2rem;
 }
-
-/*.scroll-to-top {
-  z-index: 1042;
-  right: 1rem;
-  bottom: 1rem;
-  display: none;
-}
-
-.scroll-to-top a {
-  width: 3.5rem;
-  height: 3.5rem;
-  background-color: rgba(33, 37, 41, 0.5);
-  line-height: 3.1rem;
-}*/
 
 #mainNav {
   align-items: flex-start;
@@ -358,36 +352,8 @@ body > header > div {
   background: #18BC9C;
 }
 
-/*@media (min-width: 992px) {
-  #mainNav {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    background-color: #2C3E50;
-    -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
-    transition: padding-top 0.3s, padding-bottom 0.3s;
-  }
-  #mainNav .navbar-brand {
-    font-size: 2em;
-    -webkit-transition: font-size 0.3s;
-    transition: font-size 0.3s;
-  }
-  #mainNav .navbar-nav {
-    margin-top: 0;
-  }
-  #mainNav.navbar {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-  }
-  #mainNav.navbar .navbar-brand {
-    font-size: 1.5em;
-  }
-}*/
-
-
-
 header.masthead {
   padding-top: 6rem;
-  /*padding-bottom: 6rem;*/
 }
 
 header.masthead h1 {
@@ -414,6 +380,10 @@ header.masthead h2 {
   header.masthead h2 {
     font-size: 1.75em;
   }
+}
+
+.col-md-5 {
+  display: inline-block;
 }
 
 .portfolio {
