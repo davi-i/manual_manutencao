@@ -76,18 +76,21 @@ $(function() {
 
   var adjustMargin = function() {
     var $mainNav = $('#mainNav');
-    var scrollBar = $(window).width() >= 992 && $mainNav.height() < $mainNav[0].scrollHeight;
+    var scrollBar = $mainNav.height() < $mainNav[0].scrollHeight;
+    var tamanho = $(window).width() >= 992;
     if (scrollBar){
-      $('body > header, section').each(function(){
-        var $this = $(this);
-        $this.css('margin-left', (parseFloat($('html').css('font-size'))*19+10)+'px');
-      });
-      $('.direction').each(function(){
-        var $this = $(this);
-        $this.css('margin-left', (parseFloat($('html').css('font-size'))*9.5+5)+'px');
-      });
-    } else {
-      $('body > header, section, .direction').css('margin-left', 0);
+      if (tamanho) {
+        $('body > header, section').each(function(){
+          var $this = $(this);
+          $this.css('margin-left', (parseFloat($('html').css('font-size'))*19+10)+'px');
+        });
+        $('.direction').each(function(){
+          var $this = $(this);
+          $this.css('margin-left', (parseFloat($('html').css('font-size'))*9.5+5)+'px');
+        });
+      } else {
+        $('body > header, section, .direction').css('margin-left', 0);
+      }
     }
   }
   var $navbar = $('#navbarResponsive');
