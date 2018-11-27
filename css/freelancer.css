@@ -184,7 +184,9 @@ section ol > img {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  margin-bottom: 10px;
+  margin-bottom: 30px;
+  width: 75%;
+  height: auto;
 }
 
 .btn-xl {
