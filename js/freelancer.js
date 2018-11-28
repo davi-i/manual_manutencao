@@ -96,6 +96,8 @@ $(function() {
   var $navbar = $('#navbarResponsive');
   var $collapser = $('span.collapser');
   var toggleNavbar = function(state){
+    if ($(window).width() > 992)
+      return;
     if (state === undefined)
       state = $navbar.css('display') == 'none';
     if (state) {
