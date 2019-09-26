@@ -64,6 +64,8 @@ body > header {
   height: 100vh;
 }
 
+/*body { background-image: url("/img/fundo.png"); }*/
+
 article {
   margin: 0 2rem;
   font-size: 1.5rem;
@@ -232,7 +234,7 @@ section ol > img {
 }
 
 #mainNav::-webkit-scrollbar-track {
-  background: #2C3E50;
+  background: /img/fundo.jpg;
   border-radius: 0;
 }
 
