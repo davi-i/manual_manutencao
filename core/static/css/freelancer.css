@@ -60,10 +60,18 @@ body {
   font-family: 'Lato';
 }
 
-body > header {
+body > header.masthead {
   height: 100vh;
 }
 
+.index-header {
+  margin: 10rem;
+  margin-bottom: 0;
+}
+
+.index-header .btn {
+  font-size: 1.5rem;
+}
 /*body { background-image: url("/img/fundo.png"); }*/
 
 article {
@@ -207,16 +215,16 @@ section ol > img {
   align-items: flex-start;
   font-weight: 700;
   font-family: 'Montserrat';
-  height: 100vh;
-  position: fixed;
-  left: 0;
-  top: 0;
-  padding: 0;
   background-color: #2C3E50;
   -webkit-transition: padding 0.3s;
   transition: padding 0.3s;
   z-index: 50;
   overflow-y: auto;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 0;
 }
 
 #navbarResponsive {
@@ -311,7 +319,7 @@ span.collapser {
   }
 }
 
-body > header > div {
+body > header.masthead > div {
   position: relative;
   top: 50%;
   left: 0;
@@ -371,7 +379,7 @@ header.masthead h2 {
 }
 
 @media (min-width: 992px) {
-  body > header, section {
+  body > header.masthead, section {
     margin-left: 19rem;
   }
   span.direction {

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block nav %}
+{% endblock %}
+
+{% block conteudo %}
+  <!-- Header -->
+  <header class="index-header bg-primary text-white text-center">
+    <div class="container">
+      <h1 class="text-uppercase mb-0">Manual de Manutenção de Computadores</h1>
+      <hr class="cog-light" />
+      <h2 class="font-weight-light mb-0">Aprenda a previnir a quebra de seu computador, a organizá-lo e a consertá-lo.</h2>
+    </div>
+    <h2 class="mt-5">Escolha um manual para iniciar:</h2>
+    <div class="row">
+      <div class="col-md-4 col-12 py-3">
+        <a class="btn btn-secondary" href="{% url 'preventiva' %}">Manutenção preventiva</a>
+      </div>
+      <div class="col-md-4 col-12 py-3">
+        <a class="btn btn-secondary" href="{% url 'corretiva' %}">Manutenção corretiva</a>
+      </div>
+      <div class="col-md-4 col-12 py-3">
+        <a class="btn btn-secondary" href="{% url 'organizacao' %}">Organização</a>
+      </div>
+    </div>
+  </header>
+{% endblock %}
