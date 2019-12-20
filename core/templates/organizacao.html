@@ -1,123 +1,65 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block nav %}
-  <span id="next" class="direction"><i class="fas fa-angle-down"></i></span>
-  <span id="prev" class="direction"><i class="fas fa-angle-up"></i></span>
-  <!-- Navigation -->
-  <span class="collapser"><i class="fas"></i></span>
-  <nav class="navbar navbar-expand-lg text-uppercase" id="mainNav">
-    <div class="flex-column" id="navbarResponsive">
-      <a class="navbar-brand js-scroll-trigger" href="{% url 'index' %}">Manual<br/>de<br/>Manutenção</a>
-      <ul class="navbar-nav flex-column">
-        <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link py-3 px-1 px-lg-3 rounded js-scroll-trigger" href="#passo1">XXXXXXX</a>
-        </li><li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link py-3 px-1 px-lg-3 rounded js-scroll-trigger" href="#equipe">Equipe</a>
-        </li>
-        <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link py-3 px-1 px-lg-3 rounded js-scroll-trigger" href="#duvidas">Dúvidas</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+{% block itens %}
+  <li class="nav-item mx-0 mx-lg-1">
+    <a class="nav-link py-3 px-1 px-lg-3 rounded js-scroll-trigger" href="#comp1">Placa-mãe</a>
+    <a class="nav-link py-3 px-1 px-lg-3 rounded js-scroll-trigger" href="#comp2">Processador</a>
+    <a class="nav-link py-3 px-1 px-lg-3 rounded js-scroll-trigger" href="#comp3">Memória RAM</a>
+    <a class="nav-link py-3 px-1 px-lg-3 rounded js-scroll-trigger" href="#comp4">Disco rígido</a>
+  </li>
 {% endblock %}
 
 {% block conteudo %}
-  <section id="passo1" class="tab-pane bg-primary text-center">
+  <section id="comp1" class="tab-pane bg-primary text-center">
     <header class="text-center">
-      <h3 class="mb-5">X</h3>
+      <h3 class="mb-5">Placa-mãe</h3>
     </header>
     <article class="text-justify">
-      <h4 id="passo1-1"><i class="fas fa-user-cog"></i> Por que XXXXXX?</h4>
-      <p>XXXXXXXXXXXXXXXX.</p>
-      <h4 id="passo1-2"><i class="fas fa-cog"></i> Como XXXXXXXXX?</h4>
-      <div class="container-fluid video text-center my-3"><a class="popup-youtube" href="https://www.youtube.com/watch?v="><i class="fab fa-youtube"></i> Vídeo</a></div>
-      <h5 id="passo1-2-1"><i class="fas fa-wrench"></i> Intrumentos necessários:</h5>
+      <div class="img"><img src="{% static 'img/placa-mae.jpg' %}"></div>
+      <h4 id="comp1-1"><i class="fas fa-user-cog"></i> Definição</h4>
+      <p>A placa-mãe (ou motherboard, em inglês) é uma placa de circuito impresso que permite interligar todos os componentes de um computador.</p>
+    </article>
+  </section>
+  <section id="comp2" class="tab-pane bg-primary text-center">
+    <header class="text-center">
+      <h3 class="mb-5">Processador</h3>
+    </header>
+    <article class="text-justify">
+      <div class="img"><img src="{% static 'img/processador.jpg' %}"></div>
+      <h4 id="comp2-1"><i class="fas fa-user-cog"></i> Definição</h4>
+      <p>O Processador é um circuito integrado capaz de efetuar o processamento de dados, obedecendo a um conjunto predeterminado de instruções. Ele se comunica com o seu exterior (memória, chips da placa-mãe, periféricos, etc) através dos barramentos.</p>
+    </article>
+  </section>
+  <section id="comp3" class="tab-pane bg-primary text-center">
+    <header class="text-center">
+      <h3 class="mb-5">Memória RAM</h3>
+    </header>
+    <article class="text-justify">
+      <div class="img"><img src="{% static 'img/memoria.jpg' %}"></div>
+      <h4 id="comp3-1"><i class="fas fa-user-cog"></i> Definição</h4>
+      <p> A memória de acesso aleatório (do inglês Random Access Memory) é um tipo de memória que permite a leitura e a escrita de dados de forma rápida.</p>
+      <h4 class="comp3-2"><i class="fas fa-cog"></i> Características:</h4>
       <ul>
-        <li>XXXXXXXXXXX</li>
-        <li>XXXXXXXXXXX</li>
+        <li><strong>Memória principal:</strong> pode ser lida e gravada pela CPU a qualquer instante. A CPU usa para armazenar e executar programas vindos do disco, para ler e escrever os dados que estão sendo processados.</li>
+        <li><strong>Mémoria volátil:</strong> seus dados são perdidos após cessar a alimentação; pois todos os dados que não forem guardados de forma permanente serão apagados após encerramento do computador.</li>
       </ul>
-      <h5 id="passo1-2-2"><i class="fas fa-clipboard-list"></i></i> XXXXXXXXXXXX:</h5>
-      <ol>
-        <li>XXXXXXXXXXX;</li>
-        <li>XXXXXXXXXXX;</li>
-      </ol>
-      <h5 id="passo1-2-3"><i class="fas fa-clipboard-list"></i></i> XXXXXXXXXXXXXX:</h5>
-      <ol>
-        <li>XXXXXXXXXXX;</li>
-        <li>XXXXXXXXXXX;</li>
-      </ol>
+    </article>
   </section>
-  <section id="equipe" class="bg-white px-5">
-    <h2 class="text-center text-uppercase text-secondary mb-0">Equipe</h2>
-    <hr class="cog-dark mb-5">
-    <div class="row text-center">
-      <div class="col-md-4 col-12">
-        <br/>
-        <img class="rounded-circle" src="{% static 'img/equipe/Davi.jpg' %}" width="50%" height="auto">
-        <p class="text-black">José Davi Viana Francelino</p>
-      </div>
-      <div class="col-md-4 col-12">
-        <br/>
-        <img class="rounded-circle" src="{% static 'img/equipe/Lais.jpg' %}" width="50%" height="auto">
-        <p class="text-black">Lais Tayany do Nascimento Soares</p>
-      </div>
-      <div class="col-md-4 col-12">
-        <br/>
-        <img class="rounded-circle" src="{% static 'img/equipe/Larissa.jpg' %}" width="50%" height="auto">
-        <p class="text-black">Larissa Andressa Pereira Silva</p>
-      </div>
-      <div class="col-md-4 col-12">
-        <img class="rounded-circle" src="{% static 'img/equipe/Milenna.jpg' %}" width="50%" height="auto">
-        <p class="text-black">Milenna Nunes Marinho</p>
-      </div>
-      <div class="col-md-4 col-12">
-        <img class="rounded-circle" src="{% static 'img/equipe/Natalia.jpg' %}" width="50%" height="auto">
-        <p class="text-black">Natália Cristina Tertuliano Melo</p>
-      </div>
-      <div class="col-md-4 col-12">
-        <img class="rounded-circle" src="{% static 'img/equipe/Vivianny.jpg' %}" width="50%" height="auto">
-        <p class="text-black">Vivianny Caroline Félix Bezerra</p>
-      </div>
-      <div class="col-md-4 col-12">
-        <img class="rounded-circle" src="{% static 'img/equipe/Evantuy.jpg' %}" width="50%" height="auto">
-        <p class="text-black">Evantuy de Oliveira</p>
-      </div>
-    </div>
+  <section id="comp4" class="tab-pane bg-primary text-center">
+    <header class="text-center">
+      <h3 class="mb-5">Disco Rígido</h3>
+    </header>
+    <article class="text-justify">
+      <div class="img"><img src="{% static 'img/hd.jpg' %}"></div>
+      <h4 id="comp4-1"><i class="fas fa-user-cog"></i> Definição</h4>
+      <p> O disco rígido (também conhecido como HD, que vem do inglês Hard Disk) não acessado diretamento pelo CPU, diferente da memória RAM. O seu acesso é feito através de interfaces ou controladores especiais.</p>
+      <h4 class="comp4-2"><i class="fas fa-cog"></i> Características:</h4>
+      <ul>
+        <li><strong>Memória secundária:</strong> não é necessária para o funcionamento do computador, mesmo sendo muito importante, já que guarda os dados permanentemente.</li>
+        <li><strong>Mémoria não volátil:</strong> seus dados permanecem mesmo após cessada a alimentação, isto é, não será apagado, alterado ou perdido quando se desliga o computador.</li>
+      </ul>
+    </article>
   </section>
-  <section id="duvidas" class="bg-white">
-    <h2 class="text-center text-uppercase text-secondary mb-0">Envie suas dúvidas</h2>
-    <hr class="cog-dark mb-5">
-    <div class="row">
-      <div class="col-lg-8 mx-auto">
-        <form name="sentMessage" id="contactForm" novalidate="novalidate">
-          <div class="control-group">
-            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              <label>Nome</label>
-              <input class="form-control" id="name" type="text" placeholder="Nome" required="required" data-validation-required-message="Digite sua senha" />
-              <p class="help-block text-danger"></p>
-            </div>
-          </div>
-          <div class="control-group">
-            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              <label>Email</label>
-              <input class="form-control" id="email" type="email" placeholder="Email" required="required" data-validation-required-message="Digite seu email" />
-              <p class="help-block text-danger"></p>
-            </div>
-          </div>
-          <div class="control-group">
-            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              <label>Mensagem</label>
-              <textarea class="form-control" id="message" rows="1" placeholder="Mensagem" required="required" data-validation-required-message="Digite a mensagem"></textarea>
-              <p class="help-block text-danger"></p>
-            </div>
-          </div>
-          <div id="success"></div>
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Enviar</button>
-          </div>
-        </form>
-      </div>
-    </div>
+  {{block.super}}
 {% endblock %}

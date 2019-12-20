@@ -8,12 +8,12 @@ def index(request):
 
 
 def preventiva(request):
-    return render(request, 'preventiva.html')
+    return render(request, 'preventiva.html', {'titulo': 'Manutenção preventiva'})
 
 
 def corretiva(request):
-    return render(request, 'corretiva.html')
+    return render(request, 'corretiva.html', {'titulo': 'Manutenção corretiva'})
 
 
 def organizacao(request):
-    return render(request, 'organizacao.html')
+    return render(request, 'organizacao.html', {'titulo': 'Organização'})

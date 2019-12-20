@@ -1,123 +1,64 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block nav %}
-  <span id="next" class="direction"><i class="fas fa-angle-down"></i></span>
-  <span id="prev" class="direction"><i class="fas fa-angle-up"></i></span>
-  <!-- Navigation -->
-  <span class="collapser"><i class="fas"></i></span>
-  <nav class="navbar navbar-expand-lg text-uppercase" id="mainNav">
-    <div class="flex-column" id="navbarResponsive">
-      <a class="navbar-brand js-scroll-trigger" href="{% url 'index' %}">Manual<br/>de<br/>Manutenção</a>
-      <ul class="navbar-nav flex-column">
-        <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link py-3 px-1 px-lg-3 rounded js-scroll-trigger" href="#passo1">XXXXXXX</a>
-        </li><li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link py-3 px-1 px-lg-3 rounded js-scroll-trigger" href="#equipe">Equipe</a>
-        </li>
-        <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link py-3 px-1 px-lg-3 rounded js-scroll-trigger" href="#duvidas">Dúvidas</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+{% block itens %}
+  <li class="nav-item mx-0 mx-lg-1">
+    <a class="nav-link py-3 px-1 px-lg-3 rounded js-scroll-trigger" href="#caso1">O computador desliga logo após aparecer "HDD Failure"</a>
+  </li>
+  <li class="nav-item mx-0 mx-lg-1">
+    <a class="nav-link py-3 px-1 px-lg-3 rounded js-scroll-trigger" href="#caso2">O computador não liga</a>
+  </li>
 {% endblock %}
 
 {% block conteudo %}
-  <section id="passo1" class="tab-pane bg-primary text-center">
+  <section id="caso1" class="tab-pane bg-primary text-center">
     <header class="text-center">
-      <h3 class="mb-5">X</h3>
+      <h3 class="mb-5">O computador desliga logo após aparecer "HDD Failure"</h3>
     </header>
     <article class="text-justify">
-      <h4 id="passo1-1"><i class="fas fa-user-cog"></i> Por que XXXXXX?</h4>
-      <p>XXXXXXXXXXXXXXXX.</p>
-      <h4 id="passo1-2"><i class="fas fa-cog"></i> Como XXXXXXXXX?</h4>
-      <div class="container-fluid video text-center my-3"><a class="popup-youtube" href="https://www.youtube.com/watch?v="><i class="fab fa-youtube"></i> Vídeo</a></div>
-      <h5 id="passo1-2-1"><i class="fas fa-wrench"></i> Intrumentos necessários:</h5>
+      <h4 id="caso1-1"><i class="fas fa-user-cog"></i> Possíveis causas</h4>
       <ul>
-        <li>XXXXXXXXXXX</li>
-        <li>XXXXXXXXXXX</li>
+        <li>Os cabos (ou algum dos cabos) que conectam o HD foram desconectados.</li>
+        <li>o HD está com algum problema físico. Nesse caso, será necessário trocá-lo.</li>
       </ul>
-      <h5 id="passo1-2-2"><i class="fas fa-clipboard-list"></i></i> XXXXXXXXXXXX:</h5>
+      <h4 id="caso1-2"><i class="fas fa-cog"></i> Como consertar?</h4>
+      <div class="container-fluid video text-center my-3"><a class="popup-youtube" href="https://www.youtube.com/watch?v="><i class="fab fa-youtube"></i> Vídeo</a></div>
+      <div class="container-fluid text-center my-3 py-2 bg-danger">
+        <h4><i class="fas fa-exclamation-triangle"></i> Atenção!</h4>
+        <p>Desligue o computador e descarregue sua eletricidade estática antes de mexer no seu hardware.</p>
+      </div>
+      <h5 id="caso1-2-1"><i class="fas fa-clipboard-list"></i></i> Passos:</h5>
       <ol>
-        <li>XXXXXXXXXXX;</li>
-        <li>XXXXXXXXXXX;</li>
+        <li>Abra o gabinete;</li>
+        <li>Desconecte e reconecte os Cabos do HD, observando o cabo que, provavelmente, está solto;</li>
+        <li>Após reconectar tudo adequadamente, como explicado no vídeo, feche o gabinete;</li>
+        <li>Ligue-o e confira se o problema foi solucionado.</li>
       </ol>
-      <h5 id="passo1-2-3"><i class="fas fa-clipboard-list"></i></i> XXXXXXXXXXXXXX:</h5>
+    </article>
+  </section>
+  <section id="caso2" class="tab-pane bg-primary text-center">
+    <header class="text-center">
+      <h3 class="mb-5">O computador não liga</h3>
+    </header>
+    <article class="text-justify">
+      <h4 id="caso2-1"><i class="fas fa-user-cog"></i> Possíveis causas</h4>
+      <ul>
+        <li>A fonte de alimentação do computador está queimada.</li>
+        <li>O botão de Ligar e Desligar do gabinete não está funcionando.</li>
+      </ul>
+      <h4 id="caso2-2"><i class="fas fa-cog"></i> Como consertar?</h4>
+      <div class="container-fluid video text-center my-3"><a class="popup-youtube" href="https://www.youtube.com/watch?v="><i class="fab fa-youtube"></i> Vídeo</a></div>
+      <div class="container-fluid text-center my-3 py-2 bg-danger">
+        <h4><i class="fas fa-exclamation-triangle"></i> Atenção!</h4>
+        <p>Desligue o computador e descarregue sua eletricidade estática antes de mexer no seu hardware.</p>
+      </div>
+      <h5 id="caso2-2-1"><i class="fas fa-clipboard-list"></i></i> Passos:</h5>
       <ol>
-        <li>XXXXXXXXXXX;</li>
-        <li>XXXXXXXXXXX;</li>
+        <li>Com o cabo de alimentação ainda ligado, abra o gabinete;</li>
+        <li>Confira, sem tocar nas peças, se o LED que fica na placa-mãe e indica energia, está apagado. Caso não haja esse LED, siga o próximo passo mesmo assim;</li>
+        <li>Caso não haja LED ou caso ele esteja apagado, troque a fonte de alimentação (como mostrado no vídeo acima). Mas se o LED estiver aceso, o problema pode ser o botão do gabinete. Esse tipo de problema pode indicar várias tipos causas, mas inicialmente deve-se buscar as causas mais óbvias, descritas acima.</li>
       </ol>
+    </article>
   </section>
-  <section id="equipe" class="bg-white px-5">
-    <h2 class="text-center text-uppercase text-secondary mb-0">Equipe</h2>
-    <hr class="cog-dark mb-5">
-    <div class="row text-center">
-      <div class="col-md-4 col-12">
-        <br/>
-        <img class="rounded-circle" src="{% static 'img/equipe/Davi.jpg' %}" width="50%" height="auto">
-        <p class="text-black">José Davi Viana Francelino</p>
-      </div>
-      <div class="col-md-4 col-12">
-        <br/>
-        <img class="rounded-circle" src="{% static 'img/equipe/Lais.jpg' %}" width="50%" height="auto">
-        <p class="text-black">Lais Tayany do Nascimento Soares</p>
-      </div>
-      <div class="col-md-4 col-12">
-        <br/>
-        <img class="rounded-circle" src="{% static 'img/equipe/Larissa.jpg' %}" width="50%" height="auto">
-        <p class="text-black">Larissa Andressa Pereira Silva</p>
-      </div>
-      <div class="col-md-4 col-12">
-        <img class="rounded-circle" src="{% static 'img/equipe/Milenna.jpg' %}" width="50%" height="auto">
-        <p class="text-black">Milenna Nunes Marinho</p>
-      </div>
-      <div class="col-md-4 col-12">
-        <img class="rounded-circle" src="{% static 'img/equipe/Natalia.jpg' %}" width="50%" height="auto">
-        <p class="text-black">Natália Cristina Tertuliano Melo</p>
-      </div>
-      <div class="col-md-4 col-12">
-        <img class="rounded-circle" src="{% static 'img/equipe/Vivianny.jpg' %}" width="50%" height="auto">
-        <p class="text-black">Vivianny Caroline Félix Bezerra</p>
-      </div>
-      <div class="col-md-4 col-12">
-        <img class="rounded-circle" src="{% static 'img/equipe/Evantuy.jpg' %}" width="50%" height="auto">
-        <p class="text-black">Evantuy de Oliveira</p>
-      </div>
-    </div>
-  </section>
-  <section id="duvidas" class="bg-white">
-    <h2 class="text-center text-uppercase text-secondary mb-0">Envie suas dúvidas</h2>
-    <hr class="cog-dark mb-5">
-    <div class="row">
-      <div class="col-lg-8 mx-auto">
-        <form name="sentMessage" id="contactForm" novalidate="novalidate">
-          <div class="control-group">
-            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              <label>Nome</label>
-              <input class="form-control" id="name" type="text" placeholder="Nome" required="required" data-validation-required-message="Digite sua senha" />
-              <p class="help-block text-danger"></p>
-            </div>
-          </div>
-          <div class="control-group">
-            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              <label>Email</label>
-              <input class="form-control" id="email" type="email" placeholder="Email" required="required" data-validation-required-message="Digite seu email" />
-              <p class="help-block text-danger"></p>
-            </div>
-          </div>
-          <div class="control-group">
-            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              <label>Mensagem</label>
-              <textarea class="form-control" id="message" rows="1" placeholder="Mensagem" required="required" data-validation-required-message="Digite a mensagem"></textarea>
-              <p class="help-block text-danger"></p>
-            </div>
-          </div>
-          <div id="success"></div>
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Enviar</button>
-          </div>
-        </form>
-      </div>
-    </div>
+  {{block.super}}
 {% endblock %}

@@ -1,45 +1,28 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block nav %}
-  <span id="next" class="direction"><i class="fas fa-angle-down"></i></span>
-  <span id="prev" class="direction"><i class="fas fa-angle-up"></i></span>
-  <!-- Navigation -->
-  <span class="collapser"><i class="fas"></i></span>
-  <nav class="navbar navbar-expand-lg text-uppercase" id="mainNav">
-    <div class="flex-column" id="navbarResponsive">
-      <a class="navbar-brand js-scroll-trigger" href="{% url 'index' %}">Manual<br/>de<br/>Manutenção</a>
-      <ul class="navbar-nav flex-column">
-        <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link py-3 px-1 px-lg-3 rounded js-scroll-trigger" href="#passo1">1. Remoção de Poeira</a>
-        </li>
-        <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link py-3 px-1 px-lg-3 rounded js-scroll-trigger" href="#passo2">2. Limpeza do Cooler</a>
-        </li>
-        <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link py-3 px-1 px-lg-3 rounded js-scroll-trigger" href="#passo3">3. Troca da pasta térmica</a>
-        </li>
-        <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link py-3 px-1 px-lg-3 rounded js-scroll-trigger" href="#passo4">4. Organização dos cabos</a>
-        </li>
-        <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link py-3 px-1 px-lg-3 rounded js-scroll-trigger" href="#passo5">5. Remoção de vírus</a>
-        </li>
-        <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link py-3 px-1 px-lg-3 rounded js-scroll-trigger" href="#passo6">6. Atualização de drivers</a>
-        </li>
-        <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link py-3 px-1 px-lg-3 rounded js-scroll-trigger" href="#passo7">7. Limpeza de arquivos temporários</a>
-        </li>
-        <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link py-3 px-1 px-lg-3 rounded js-scroll-trigger" href="#equipe">Equipe</a>
-        </li>
-        <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link py-3 px-1 px-lg-3 rounded js-scroll-trigger" href="#duvidas">Dúvidas</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+{% block itens %}
+  <li class="nav-item mx-0 mx-lg-1">
+    <a class="nav-link py-3 px-1 px-lg-3 rounded js-scroll-trigger" href="#passo1">1. Remoção de Poeira</a>
+  </li>
+  <li class="nav-item mx-0 mx-lg-1">
+    <a class="nav-link py-3 px-1 px-lg-3 rounded js-scroll-trigger" href="#passo2">2. Limpeza do Cooler</a>
+  </li>
+  <li class="nav-item mx-0 mx-lg-1">
+    <a class="nav-link py-3 px-1 px-lg-3 rounded js-scroll-trigger" href="#passo3">3. Troca da pasta térmica</a>
+  </li>
+  <li class="nav-item mx-0 mx-lg-1">
+    <a class="nav-link py-3 px-1 px-lg-3 rounded js-scroll-trigger" href="#passo4">4. Organização dos cabos</a>
+  </li>
+  <li class="nav-item mx-0 mx-lg-1">
+    <a class="nav-link py-3 px-1 px-lg-3 rounded js-scroll-trigger" href="#passo5">5. Remoção de vírus</a>
+  </li>
+  <li class="nav-item mx-0 mx-lg-1">
+    <a class="nav-link py-3 px-1 px-lg-3 rounded js-scroll-trigger" href="#passo6">6. Atualização de drivers</a>
+  </li>
+  <li class="nav-item mx-0 mx-lg-1">
+    <a class="nav-link py-3 px-1 px-lg-3 rounded js-scroll-trigger" href="#passo7">7. Limpeza de arquivos temporários</a>
+  </li>
 {% endblock %}
 
 {% block conteudo %}
@@ -207,7 +190,7 @@
         <li>Baixe o <a href="http://www.rs.iobit.com/pt/driver-booster.php">Driver Booster 5</a></li>
         <li>Instale;</li>
         <li>Após instalado, abra o programa e ele irá fazer a verificação automaticamente; caso não faça, clique em Verificar;</li>
-        <li>Após verificado é só clicar em “atualizar” e seus drivers serão atualizados!  </li>      
+        <li>Após verificado é só clicar em “atualizar” e seus drivers serão atualizados!</li>
       </ol>
     </article>
   </section>
@@ -227,7 +210,7 @@
       </ul-->
       <h5 id="passo7-2-2"><i class="fas fa-clipboard-list"></i></i> Passos (Windows 7):</h5>
       <ol>
-        <li>Clique no botão Windows, também chamado de botão Iniciar;</li>      
+        <li>Clique no botão Windows, também chamado de botão Iniciar;</li>
         <li>Pesquise por “Executar” no espaço de busca referente;</li>
         <img src="{% static 'img/5.png" />
         <li>Pesquise %temp% e exclua todo o conteúdo da pasta.</li>
@@ -249,77 +232,7 @@
         <li>Clique em "Ok"</li>
         <img src="{% static 'img/passo7-img05.jpg' %}" width="75%" height="auto" />
       </ol>
+    </article>
   </section>
-  <section id="equipe" class="bg-white px-5">
-    <h2 class="text-center text-uppercase text-secondary mb-0">Equipe</h2>
-    <hr class="cog-dark mb-5">
-    <div class="row text-center">
-      <div class="col-md-4 col-12">
-        <br/>
-        <img class="rounded-circle" src="{% static 'img/equipe/Davi.jpg' %}" width="50%" height="auto">
-        <p class="text-black">José Davi Viana Francelino</p>
-      </div>
-      <div class="col-md-4 col-12">
-        <br/>
-        <img class="rounded-circle" src="{% static 'img/equipe/Lais.jpg' %}" width="50%" height="auto">
-        <p class="text-black">Lais Tayany do Nascimento Soares</p>
-      </div>
-      <div class="col-md-4 col-12">
-        <br/>
-        <img class="rounded-circle" src="{% static 'img/equipe/Larissa.jpg' %}" width="50%" height="auto">
-        <p class="text-black">Larissa Andressa Pereira Silva</p>
-      </div>
-      <div class="col-md-4 col-12">
-        <img class="rounded-circle" src="{% static 'img/equipe/Milenna.jpg' %}" width="50%" height="auto">
-        <p class="text-black">Milenna Nunes Marinho</p>
-      </div>
-      <div class="col-md-4 col-12">
-        <img class="rounded-circle" src="{% static 'img/equipe/Natalia.jpg' %}" width="50%" height="auto">
-        <p class="text-black">Natália Cristina Tertuliano Melo</p>
-      </div>
-      <div class="col-md-4 col-12">
-        <img class="rounded-circle" src="{% static 'img/equipe/Vivianny.jpg' %}" width="50%" height="auto">
-        <p class="text-black">Vivianny Caroline Félix Bezerra</p>
-      </div>
-      <div class="col-md-4 col-12">
-        <img class="rounded-circle" src="{% static 'img/equipe/Evantuy.jpg' %}" width="50%" height="auto">
-        <p class="text-black">Evantuy de Oliveira</p>
-      </div>
-    </div>
-  </section>
-  <section id="duvidas" class="bg-white">
-    <h2 class="text-center text-uppercase text-secondary mb-0">Envie suas dúvidas</h2>
-    <hr class="cog-dark mb-5">
-    <div class="row">
-      <div class="col-lg-8 mx-auto">
-        <form name="sentMessage" id="contactForm" novalidate="novalidate">
-          <div class="control-group">
-            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              <label>Nome</label>
-              <input class="form-control" id="name" type="text" placeholder="Nome" required="required" data-validation-required-message="Digite sua senha" />
-              <p class="help-block text-danger"></p>
-            </div>
-          </div>
-          <div class="control-group">
-            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              <label>Email</label>
-              <input class="form-control" id="email" type="email" placeholder="Email" required="required" data-validation-required-message="Digite seu email" />
-              <p class="help-block text-danger"></p>
-            </div>
-          </div>
-          <div class="control-group">
-            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              <label>Mensagem</label>
-              <textarea class="form-control" id="message" rows="1" placeholder="Mensagem" required="required" data-validation-required-message="Digite a mensagem"></textarea>
-              <p class="help-block text-danger"></p>
-            </div>
-          </div>
-          <div id="success"></div>
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Enviar</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
+  {{block.super}}
 {% endblock %}

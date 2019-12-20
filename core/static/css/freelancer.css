@@ -122,6 +122,12 @@ a.go-to-content:hover {
   background: rgba(255, 255, 255, 0.2);
 }
 
+hr {
+  color: white;
+  background-color: white;
+  border-color: white;
+}
+
 hr.cog-light,
 hr.cog-dark {
   max-width: 15rem;
@@ -185,11 +191,11 @@ section h5 {
   }
 }
 
-section ol {
+section ol, section div.img {
   position: relative;
 }
 
-section ol > img {
+section ol > img, section div.img > img {
   position: relative;
   top: 0;
   left: 50%;

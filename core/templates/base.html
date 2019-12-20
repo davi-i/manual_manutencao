@@ -31,8 +31,102 @@
 
   <body id="page-top" class="bg-primary">
     {% block nav %}
+      <span id="next" class="direction"><i class="fas fa-angle-down"></i></span>
+      <span id="prev" class="direction"><i class="fas fa-angle-up"></i></span>
+      <!-- Navigation -->
+      <span class="collapser"><i class="fas"></i></span>
+      <nav class="navbar navbar-expand-lg text-uppercase text-white" id="mainNav">
+        <div class="flex-column" id="navbarResponsive">
+          <a class="navbar-brand" href="{% url 'index' %}">Manual<br/>de<br/>Manutenção</a>
+          <hr/>
+          <h3 class="text-center">{{titulo}}</h3>
+          <hr/>
+          <ul class="navbar-nav flex-column">
+            {% block itens %}
+            {% endblock %}
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-1 px-lg-3 rounded js-scroll-trigger" href="#equipe">Equipe</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-1 px-lg-3 rounded js-scroll-trigger" href="#duvidas">Dúvidas</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     {% endblock %}
     {% block conteudo %}
+      <section id="equipe" class="bg-white px-5">
+        <h2 class="text-center text-uppercase text-secondary mb-0">Equipe</h2>
+        <hr class="cog-dark mb-5">
+        <div class="row text-center">
+          <div class="col-md-4 col-12">
+            <br/>
+            <img class="rounded-circle" src="{% static 'img/equipe/Davi.jpg' %}" width="50%" height="auto">
+            <p class="text-black">José Davi Viana Francelino</p>
+          </div>
+          <div class="col-md-4 col-12">
+            <br/>
+            <img class="rounded-circle" src="{% static 'img/equipe/Lais.jpg' %}" width="50%" height="auto">
+            <p class="text-black">Lais Tayany do Nascimento Soares</p>
+          </div>
+          <div class="col-md-4 col-12">
+            <br/>
+            <img class="rounded-circle" src="{% static 'img/equipe/Larissa.jpg' %}" width="50%" height="auto">
+            <p class="text-black">Larissa Andressa Pereira Silva</p>
+          </div>
+          <div class="col-md-4 col-12">
+            <img class="rounded-circle" src="{% static 'img/equipe/Milenna.jpg' %}" width="50%" height="auto">
+            <p class="text-black">Milenna Nunes Marinho</p>
+          </div>
+          <div class="col-md-4 col-12">
+            <img class="rounded-circle" src="{% static 'img/equipe/Natalia.jpg' %}" width="50%" height="auto">
+            <p class="text-black">Natália Cristina Tertuliano Melo</p>
+          </div>
+          <div class="col-md-4 col-12">
+            <img class="rounded-circle" src="{% static 'img/equipe/Vivianny.jpg' %}" width="50%" height="auto">
+            <p class="text-black">Vivianny Caroline Félix Bezerra</p>
+          </div>
+          <div class="col-md-4 col-12">
+            <img class="rounded-circle" src="{% static 'img/equipe/Evantuy.jpg' %}" width="50%" height="auto">
+            <p class="text-black">Evantuy de Oliveira</p>
+          </div>
+        </div>
+      </section>
+      <section id="duvidas" class="bg-white">
+        <h2 class="text-center text-uppercase text-secondary mb-0">Envie suas dúvidas</h2>
+        <hr class="cog-dark mb-5">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <form name="sentMessage" id="contactForm" novalidate="novalidate">
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                  <label>Nome</label>
+                  <input class="form-control" id="name" type="text" placeholder="Nome" required="required" data-validation-required-message="Digite sua senha" />
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                  <label>Email</label>
+                  <input class="form-control" id="email" type="email" placeholder="Email" required="required" data-validation-required-message="Digite seu email" />
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                  <label>Mensagem</label>
+                  <textarea class="form-control" id="message" rows="1" placeholder="Mensagem" required="required" data-validation-required-message="Digite a mensagem"></textarea>
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+              <div id="success"></div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Enviar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
     {% endblock %}
     <!-- Bootstrap core JavaScript -->
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
